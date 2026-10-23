@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "notice": "Starter metadata only; no third-party logo artwork bundled. Include only references you have rights to redistribute or metadata you are permitted to use.",
+  "items": [
+    {
+      "name": "Negative-space study",
+      "industry": "cross-industry",
+      "mark_type": "abstract",
+      "technique": "negative space",
+      "mood": "clever, minimal",
+      "notes": "Study foreground/background cooperation; do not imitate an existing trademark.",
+      "source": "original design principle",
+      "license": "original descriptive metadata"
+    },
+    {
+      "name": "Custom wordmark study",
+      "industry": "cross-industry",
+      "mark_type": "wordmark",
+      "technique": "custom typography",
+      "mood": "distinctive, confident",
+      "notes": "Study letter rhythm, kerning, counters and a single ownable typographic feature.",
+      "source": "original design principle",
+      "license": "original descriptive metadata"
+    }
+  ]
+}
