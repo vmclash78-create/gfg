@@ -1,28 +1,38 @@
-# Logo Design for ChatGPT
+# Logo Design for ChatGPT and compatible coding agents
 
-A ChatGPT-oriented adaptation of the open Agent Skills logo-design workflow.
+A practical logo-design toolkit with reusable instructions, Python utilities, a starter reference catalog, tests and GitHub Actions CI.
 
-This adaptation turns the original agent-oriented logo-design process into instructions that can be used in a ChatGPT Project, a custom GPT's instructions, or as a reusable prompt. It does **not** install itself into the ChatGPT mobile app just because it is stored on GitHub.
-
-## What's included
-
-- `SKILL.md` — core role, workflow, quality bar, decision gates, and response contract.
-- `CHATGPT_SETUP.md` — how to use these instructions in ChatGPT.
-- `references/quality-checklist.md` — practical visual and production checks.
-- `references/brief-template.md` — structured discovery brief and fallback assumptions.
-- `examples/example-brief.md` — sample request showing the expected level of specificity.
-
-## Important compatibility note
-
-ChatGPT does not automatically execute a GitHub repository's files as a skill. Copy the contents of `SKILL.md` into a ChatGPT Project's instructions or a custom GPT's instructions. If you want automated SVG linting, image rendering, or access to a local logo corpus, those require a separate tool/runtime; these instructions alone cannot execute Python scripts or browse local files.
-
-## Attribution and scope
-
-This is an independent ChatGPT-oriented adaptation inspired by the public workflow described in [kaankiziltug/logo-design-skill](https://github.com/kaankiziltug/logo-design-skill). It is not the original repository and does not copy its reference-logo asset library. Use reference images for analysis, not imitation. Respect third-party trademarks and licensing.
+## Features
+- Design workflow with a concept approval checkpoint.
+- SVG structural audit with heuristic warnings.
+- Standalone HTML preview sheet for size, monochrome, reversed, squint and mirror checks.
+- SVG-to-PNG rendering via optional CairoSVG or Inkscape.
+- Monochrome/reversed SVG variant generator and web manifest scaffold.
+- Searchable local JSON metadata catalog.
+- Unit tests and GitHub Actions workflow.
 
 ## Quick start
 
-1. Open `SKILL.md`.
-2. Copy it into the instructions for a ChatGPT Project or custom GPT.
-3. Ask for a new identity, critique, redesign, or asset pack.
-4. Review the concept checkpoint before asking for final production variants.
+Run from the logo-design-chatgpt directory:
+
+    python scripts/svg_audit.py path/to/logo.svg
+    python scripts/preview_sheet.py path/to/a.svg path/to/b.svg -o review.html
+    python scripts/export_variants.py path/to/logo.svg --mono "#111111" --reverse "#ffffff"
+    python scripts/search_library.py "negative space" --catalog assets/library/catalog.json
+    python -m unittest discover -s tests -v
+
+PNG rendering requires CairoSVG (python -m pip install cairosvg) or Inkscape:
+
+    python scripts/render_png.py path/to/logo.svg --size 512 -o logo.png
+
+## Use in ChatGPT
+
+Copy skills/logo-design/SKILL.md or the main SKILL.md into a ChatGPT Project or custom GPT instructions. GitHub storage does not automatically activate a skill in the ChatGPT mobile app. Coding agents that support the Agent Skills format can use the portable folder in skills/logo-design, subject to their installation conventions.
+
+## Honest scope and limitations
+
+This is a functional starter toolkit, not yet feature-parity with the upstream project. The local catalog is only a schema with two original descriptive entries; it does not include the upstream library of 1,400+ real logos. The scripts provide basic checks and helpers, not the upstream's full geometric analysis, industry mockup engine, complete icon export pipeline or reference corpus. PNG/ICO export and web manifest files must be verified before production.
+
+## Reference and licensing
+
+Inspired by https://github.com/kaankiziltug/logo-design-skill. This adaptation does not copy that project's logo corpus or claim ownership of third-party marks. Review the original project's license and trademark notices before reusing upstream code or assets.
